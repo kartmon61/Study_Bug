@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <!-- 1. Link to jQuery (1.8 or later), -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB --> 
+    <link rel="stylesheet" type="text/css" href="/static/css/stylesheet.css?{% now 'U' %}"/>
+    <title>License bug</title>
+</head>
+<body>
+        <header>
+            header
+        </header>
+        {% block layoutblock %}
+        {% endblock %}  
+        <footer>
+                <strong>license</strong><br/>
+                진호&nbsp;|&nbsp;kartmon@naver.com<br/>
+                정인&nbsp;|&nbsp;alslahdk@naver.com<br/> 
+                소희&nbsp;|&nbsp;alslahdk@naver.com<br/> 
+                혜린&nbsp;|&nbsp;alslahdk@naver.com<br/> 
+
+        </footer>
+</body>
+</html>

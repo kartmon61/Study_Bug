@@ -5,4 +5,5 @@ urlpatterns = [
     #메인 페이지
     path('',views.loading,name='loading'),
     path('login',views.login,name='login'),
+    path('signup2',views.signup2,name='signup2'),
 ]

@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script>
-        //3초 뒤 로그인 화면으로 이동 
-        setTimeout(function(){
-            location.href="login"
-        },3000);
-    </script>
-</head>
-<body>
-    <img scr="" alt="">
-    <h1>license bug</h1>
+{% extends 'nh_layout.html' %}
+{% block layoutblock %}
+<style>
+    *{        
+        height:100%; 
+        overflow-y:hidden;
+    }
+</style>
+<script>
+    //2초 뒤 로그인 화면으로 이동   
+    setTimeout(function(){
+        location.href="login"
+    },2000);  
 
-</body>
-</html>
+</script>
+
+<section id="loading"> 
+    <div>
+        <img class="fade center" src="https://data.photo-ac.com/data/thumbnails/48/480dc5acd26c31fd4cc241900692792e_t.jpeg" alt="">  
+        <h1>license bug</h1>
+    </div>
+</section>     
+
+{% endblock %}

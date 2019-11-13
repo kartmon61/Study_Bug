@@ -1,42 +1,53 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <script>
-            function tomain(){
-                location.replace("main");
-            }
-        </script>
-    </head>
-    <body>
-        {% load socialaccount %}
-        {% providers_media_js %}
-        <!-- 로그인이 되어 있을때 -->
-        {% if user.is_authenticated %}
-        현재 로그인되어 있습니다.<br>
-        <a href="main">{{user.username}}</a><br><br>
-        <a href="/accounts/logout">로그아웃</a><br>
+{% extends 'nh_layout.html' %}
+{% block layoutblock %}
 
-        <!-- 로그인이 되어 있지 않을 때 -->
-        {% else %}
-        <h1>로그인 페이지입니다.</h1>
-        <form method="POST" action="{%url 'login'%}">
-            {% csrf_token %}
+    <script>
 
-            Username:
-            <br>
-            <input name="username" type="text" value="">
-            <br>
-            Password:
-            <br>
-            <input name="password" type="password" value="">
-            <br>
-            <input type="submit" value="Login">
-        </form>
-        <!--회원가입 버튼 -->
-        <a href="{% url 'signup'%}">일반 회원가입</a>
-        <br>
-        <a href="{% provider_login_url 'google' %}">구글 로그인</a><br>
-        <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a><br>
-        {% endif %}
-    </body>
-</html> 
+        //sign_in , sign_up form toggle
+        function toggle(e){
+           f = document.forms;
+           s_id = e.getAttribute("status");
+           Array.prototype.forEach.call(f, child => { 
+                if(child.getAttribute("id") == s_id) child.style.display="block";
+                else child.style.display="none";
+            }); 
+        }
+    </script>
+    <section id="login"> 
+            {% load socialaccount %}
+            {% providers_media_js %}
+            <img src="" alt="logo" class="center">
+            {% if user.is_authenticated %}
+            현재 로그인되어 있습니다.<br>
+            <a href="../main/">{{user.username}}</a><br><br>
+            <a href="/accounts/logout">로그아웃</a><br>
+            {% else %}
+            <!--회원가입 폼-->
+            <form action="" method="POST" id="sign_up">
+                {% csrf_token %}
+                <input id="user_email" name="user_email" type="text" class="inp" placeholder="이메일" required>
+                <input id="user_password" name="user_password" type="password" placeholder="비밀번호"class="inp" required>
+                <input id="user_password2" name="user_password2" type="password" placeholder="비밀번호 확인"class="inp" required>
+                <div class="btn inp" >
+                    <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+                </div>
+                <div class="btn inp" >
+                    <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a><br>
+                </div>
+                <input type="submit" value="회원가입" class="btn inp">
+                <a href="{% url 'signup2' %}">_</a>
+                <a href="#" status="sign_in" onclick="toggle(this)">Hoxy 계정 있으세요?</a>
+            </form>
+            
+            <!--로그인 폼-->
+            <form action="{% url 'login' %}" method="POST" id="sign_in">
+                    {% csrf_token %}
+                    <input id="login_email" name="login_email" type="text" class="inp" placeholder="이메일" required>
+                    <input id="login_password" name="login_password" type="password" class="inp"  placeholder="비밀번호" required>
+                    <div class="btn inp">구글 api</div> 
+                    <input type="submit" value="로그인" class="btn inp">
+                    <a href="#" status="sign_up" onclick="toggle(this)" >회원이 아니세요?</a>
+                </form>
+            {% endif %}
+    </section>
+{% endblock %} 

@@ -1,0 +1,140 @@
+ @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+    --basic-br-color:#eeeeee; /*기본 border 색깔 변수*/
+    --basic-txt-color:#383838;/*기본 글자 색깔 변수*/ 
+    padding:0;
+    margin:0;
+}
+a{
+    text-decoration: none;
+    color:var(--basic-txt-color);
+}
+
+section{
+    display: block;
+    padding:50px 30px; 
+}
+
+
+/*******************************/
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0; 
+    }
+    to {
+      opacity: 1; 
+    }
+  }
+  .cate{
+    display: inline-block;
+    margin:5px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px rgba(46, 46, 46, 0.295);
+    border-radius: 17px;
+    padding:10px 30px;  
+
+    }
+    .cate:hover{
+        background-color:#f1f1f1;
+    }
+
+ 
+.active {
+     background-color: seagreen;
+     color:#ffffff;
+}
+.active:hover{
+    background-color: rgb(39, 124, 76);
+   
+}
+.inp{ 
+  display: block;
+  margin:15px auto;
+  width:70%;
+  padding:15px;
+  border-radius: 5px;
+  border:1px solid var(--basic-br-color);
+  font-size: 1.1em;
+}
+
+.btn{
+  background-color: purple;
+  color:#ffffff;
+}
+
+.center{
+  display: block;
+  margin:auto;
+}
+
+/*******************************/
+
+
+  #loading{
+      padding:0px;  
+      background-color: aquamarine;   
+      text-align:center;
+      font-size: 0.8em;
+  }
+  #loading img{ 
+      width:20%; 
+      height:30%; 
+      display: block; 
+      border: 1px solid red;
+  }
+  #loading div{  
+    display: block; 
+    position: relative;
+    top:30%;
+  }
+  #loading h1{
+      margin-top:30px;
+  }
+ 
+/*******************************/ 
+  
+  #login{
+    overflow-y:auto; 
+  } 
+  
+  #login form{
+    width:100%; 
+    text-align:center;
+  }
+  #login input[type='submit']{
+     width:53%;
+  }
+  #login a{
+      display: block;
+      margin-top:15px;
+  }
+   
+  #sign_in{
+      display: none;
+  }
+
+/*******************************/ 
+  #sign_up2 { 
+    height: 100%;      
+  }
+  #sign_up2 .inp{
+      width:10%; 
+      text-align: center;
+      display: block;  
+      position: absolute;
+      right:30px;
+      bottom:30px;
+  }
+  #sign_up2 h1{
+    font-size: 1.5em;
+      display: block;
+      margin-bottom: 30px;
+  }
+ 

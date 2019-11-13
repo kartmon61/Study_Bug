@@ -128,6 +128,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -147,3 +148,13 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 # 로그인 기타 설정들 #
+
+
+
+#CSS static 추가
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#) 
+STATIC_DIR = [os.path.join(BASE_DIR, 'main', 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+

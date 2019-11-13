@@ -4,6 +4,7 @@ from django.contrib import auth
 
 # 로그인 함수
 def login(request):
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -32,3 +33,12 @@ def logout(request):
         auth.logout(request)
         return redirect('login')
     return render(request,'login.html')
+
+# 로딩 화면     
+def loading(request):
+    return render(request,'loading.html')
+
+# 관심사 고르기   
+def signup2(request):
+    return render(request,'signup2.html')
+

@@ -21,6 +21,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('main.urls')),
+    path('main/',include('main.urls')),
     path('',include('login.urls')),
+    #글쓰고 보여주는 페이지
+    path('main/',include('post.urls')),
+    
 ]
+
+

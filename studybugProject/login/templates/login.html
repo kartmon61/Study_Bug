@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <script>
+            function tomain(){
+                location.replace("main");
+            }
+        </script>
     </head>
     <body>
+        {% load socialaccount %}
+        {% providers_media_js %}
+        <!-- 로그인이 되어 있을때 -->
+        {% if user.is_authenticated %}
+        현재 로그인되어 있습니다.<br>
+        <a href="main">{{user.username}}</a><br><br>
+        <a href="/accounts/logout">로그아웃</a><br>
+
+        <!-- 로그인이 되어 있지 않을 때 -->
+        {% else %}
         <h1>로그인 페이지입니다.</h1>
-        구글/카카오 api를 이용한 로그인
+        <form method="POST" action="{%url 'login'%}">
+            {% csrf_token %}
+
+            Username:
+            <br>
+            <input name="username" type="text" value="">
+            <br>
+            Password:
+            <br>
+            <input name="password" type="password" value="">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+        <!--회원가입 버튼 -->
+        <a href="{% url 'signup'%}">일반 회원가입</a>
+        <br>
+        <a href="{% provider_login_url 'google' %}">구글 로그인</a><br>
+        <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a><br>
+        {% endif %}
     </body>
-</html>
+</html> 

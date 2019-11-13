@@ -3,5 +3,5 @@ from .import views
 
 urlpatterns = [
     #메인 페이지
-    path('main/',views.main,name='main'),
+    path('',views.main,name='main'),
 ]

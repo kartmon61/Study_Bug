@@ -14,11 +14,46 @@ a{
 
 section{
     display: block;
-    padding:50px 30px; 
+    padding:50px 0px; 
+    width:80%;
+    margin:auto;
 }
 
+ul{
+  list-style:none;
+  display: block;
+}
+
+header{
+  display: block;
+  width:100%;
+  padding:20px 0px;
+  background-color: rgb(241, 201, 147);
+  text-align: center;
+  font-size: 1em;
+  position: fixed;
+  top:0;
+}
+header .left, header .right{
+  margin:0px 15px;
+}
+footer{
+  display: block;
+  width:100%;
+  padding:20px 0px;
+  background-color: #383838;
+  color: #ffffff;
+  font-size: 0.7em;
+  position: relative;
+  bottom:0;
+}
+footer div{
+  margin-left:30px;
+}
 
 /*******************************/
+.left{float:left;}
+.right{float:right;}
 .fade {
     animation-name: fade;
     animation-duration: 2s;
@@ -65,7 +100,7 @@ section{
 }
 
 .btn{
-  background-color: purple;
+  background-color: rgb(2, 112, 57);
   color:#ffffff;
 }
 
@@ -74,10 +109,27 @@ section{
   margin:auto;
 }
 
+.float_btn{
+  display: block;
+  border-radius: 100%;
+  font-size: 1.8em;
+  font-weight: bold;
+  background-color: crimson;
+  box-shadow: 3px 2px rgba(0, 0, 0, 0.199);
+  padding:15px 20px;
+  color:#ffffff;
+  position: fixed;
+  bottom:20px;
+  right:15px;
+  z-index: 10000;
+}
+
+
 /*******************************/
 
 
   #loading{
+      width:100%;
       padding:0px;  
       background-color: aquamarine;   
       text-align:center;
@@ -138,3 +190,89 @@ section{
       margin-bottom: 30px;
   }
  
+
+  /********************************/
+  #main{
+    margin-top:60px;
+    padding-top:30px; 
+  }
+
+  #main ul{
+    width:100%;
+  }
+  
+  #main form{
+    width:100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
+  #main input{
+    display: inline-block; 
+  }
+
+  #main input[type="text"]{
+    width:61.5%;
+  }
+  #main input[type="submit"]{
+    width:25%; 
+  }
+
+  @media (max-width: 610px) {
+    #main input[type="text"]{
+      width:56%;
+    }
+    #main input[type="submit"]{
+      width:25%; 
+    }
+  }  
+  #main h1{
+    margin-left:5%;
+    margin-top:3%;
+  }
+  .reviewList{  
+    display: block;
+    width:90%;   
+    margin: auto; 
+    padding:15px 0px;
+    border-bottom: 1px solid #eeeeee;
+    
+  }
+  .review{
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    display: box; 
+    margin-top:1px; 
+    max-height:80px; 
+    overflow:hidden; 
+    vertical-align:top; 
+    text-overflow: ellipsis;
+    word-break:break-all; 
+    -webkit-box-orient:vertical; 
+    -webkit-line-clamp:3
+ 
+  }
+
+  .menu{
+    display: inline-block;
+    font-size: 1em;
+    margin-right:20px;
+    padding:10px 0px;
+  }
+ 
+  .menu a:hover, .menu a:active, .menu_active{
+    color: brown;
+    border-bottom:1px solid brown;
+  }
+  nav div{
+    width:90%;
+    margin:auto;
+  }
+  nav ul{   
+    display: block; 
+    width:100%;
+    margin:auto;
+    overflow-x:auto;
+    white-space: nowrap;   
+  }

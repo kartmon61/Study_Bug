@@ -1,11 +1,17 @@
  @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+ @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,800&display=swap');
 
 *{
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Gothic A1','Nanum Gothic', sans-serif;
     --basic-br-color:#eeeeee; /*기본 border 색깔 변수*/
     --basic-txt-color:#383838;/*기본 글자 색깔 변수*/ 
     padding:0;
     margin:0;
+}
+
+body{ 
+  width: 100%;
+  height:100%;
 }
 a{
     text-decoration: none;
@@ -15,7 +21,7 @@ a{
 section{
     display: block;
     padding:50px 0px; 
-    width:80%;
+    width:45%;
     margin:auto;
 }
 
@@ -26,39 +32,57 @@ ul{
 
 header{
   display: block;
-  width:100%;
-  padding:20px 0px;
-  background-color: rgb(241, 201, 147);
+  width:100%; 
+  background-color: #ffffffda;
   text-align: center;
   font-size: 1em;
   position: fixed;
   top:0;
 }
-header .left, header .right{
-  margin:0px 15px;
+header .right,header .left{
+  margin-top:-20%;
 }
+header .left{
+  margin-left:-15%; 
+} 
+header .right{ 
+  margin-right:-15%; 
+   
+}
+header img{
+  width:40%;
+}
+header .logo{
+  clear: both;  
+  width:50%; 
+  position: relative;
+  top:5px;
+} 
 footer{
   display: block;
-  width:100%;
-  padding:20px 0px;
-  background-color: #383838;
+  width:100%;  
+  /*
   color: #ffffff;
   font-size: 0.7em;
+  */
   position: relative;
   bottom:0;
 }
-footer div{
-  margin-left:30px;
+footer img{
+  width:13%; 
 }
 
 /*******************************/
 .left{float:left;}
 .right{float:right;}
+.blue{color:#54B5FF;}
+.gray{color:#9C9C9C;}
+.underline{text-decoration: underline;}
 .fade {
     animation-name: fade;
     animation-duration: 2s;
   }
-  
+ 
 @keyframes fade {
   from {
     opacity: 0; 
@@ -67,6 +91,16 @@ footer div{
     opacity: 1; 
   }
 }
+
+.cate{
+  display: inline-block;
+  color:#2F2F2F;
+  font-size: 1.6em;
+  padding:5px;
+  margin:20px 0px;
+}
+ 
+/*
 .cate{
   display: inline-block;
   margin:5px; 
@@ -81,26 +115,31 @@ footer div{
   .cate:hover{
       background-color:#f1f1f1;
   }
-
+*/
  
 .active {
-     background-color: seagreen;
-     color:#ffffff;
+     background-image: url("../img/check.png");
+     background-repeat: no-repeat;
+     background-size:contain;
+     background-position-x: top;  
+     padding:15px;
+     text-align: center;
+     font-weight: bold;
 }
-.active:hover{
-    background-color: rgb(39, 124, 76);
-   
-}
+ 
+ 
 .inp{ 
   display: block;
   margin:15px auto;
-  width:70%;
-  padding:15px;
-  border-radius: 5px;
-  border:1px solid var(--basic-br-color);
-  font-size: 1.1em;
+  width:80%;
+  padding:15px; 
+  border:0px;
+  border-bottom: 1px solid var(--basic-br-color); 
+  font-size: 1.1em;  
+  /*color:#9C9C9C;*/
 }
 
+ 
 .btn{
   background-color: rgb(2, 112, 57);
   color:#ffffff;
@@ -129,8 +168,10 @@ footer div{
   display: block;
   width:90%;   
   margin: auto; 
-  padding:15px 0px;
-  border-bottom: 1px solid #eeeeee;
+  padding:45px 0px; 
+  background-image: url("../img/text.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   
 }
 .review{
@@ -196,6 +237,12 @@ footer div{
 .inline{
   display: inline-block;
 }
+
+.logo {
+  width:80%;
+}
+
+
 /*******************************/
 
 
@@ -203,11 +250,12 @@ footer div{
       width:100%;
       padding:0px;  
       background-color:#ffffff;
+      text-align: center;
   }
   #loading img{
     display: block; 
-    width: 80%;
-    margin:auto;
+    width: 50%;   
+    margin-top: 10%;
     
     /* 
       width:25%; 
@@ -219,10 +267,19 @@ footer div{
  
 /*******************************/ 
   
-  #login{
-    overflow-y:auto; 
-  } 
-  
+  #login {
+    color:#9C9C9C;  
+  }
+  #login .right{
+    margin-top:-30px;
+  }
+  #login p{
+    margin-top:15px;
+    margin-left:5%;
+  }
+  #login .inp{
+    width:90%;
+  }
   #login form{
     width:100%; 
     text-align:center;
@@ -234,17 +291,41 @@ footer div{
       display: block;
       margin-top:15px;
   }
-   
+  #login h1{
+    font-family: 'Roboto';
+    font-size: 1.7em;
+    color:#383838;
+    font-weight: bold;
+    margin-left:5%;
+  }
   #sign_in{
       display: none;
   }
-
-/*******************************/ 
-  #sign_up2 { 
+  #sign_up img{
     width:90%;
-    margin:auto; 
-    height: 100%;    
   }
+  .bottom_bg{ 
+    display: block;
+    width:100%; 
+    position: relative;
+    bottom: -105px; 
+    margin-right:10px;
+   
+  }
+  .top_bg{   
+    display: block;
+    width:100%; 
+    position: relative;
+    top: -155px; 
+    left:0; 
+
+  }
+/*******************************/ 
+  #sign_up2 {  
+    text-align: center;  
+    display: block; 
+  }
+  /*
   #sign_up2 .inp{
       width:10%; 
       text-align: center;
@@ -253,22 +334,43 @@ footer div{
       right:30px;
       bottom:30px;
   }
+  */
+  #sign_up2 ul{
+    width:100%;
+    padding:80px 0px;
+  }
   #sign_up2 h1{
-    font-size: 1.5em;
+    font-size: 1.7em; 
+    font-weight: normal;
     display: block;
-    margin-left:15px;
-    margin-bottom: 30px; 
+    margin-top: -30%;
+
+  }
+  #sign_up2 h2{
+    font-size: 1.4em; 
+    font-weight: normal;
+    display: block;    
+    width:40%;
+    margin:auto;
+    position: relative;
+    bottom: 30%; 
+    border-bottom:1px solid #9C9C9C;
   }
  
-
+   
   /********************************/
+  .title_img{
+    width:50%;
+  }
   #main{
+    width:100%;
     margin-top:60px;
     padding-top:30px; 
   }
 
-  #main ul{
+  #main ul:nth-child(1){
     width:100%;
+    text-align: center;
   }
   
   #main form{
@@ -284,6 +386,7 @@ footer div{
   }
   #main input[type="text"]{
     width:61.5%;
+    border-bottom: 1px solid #FA5A5A;
   }
   #main input[type="submit"]{
     width:25%; 
@@ -350,6 +453,32 @@ footer div{
  
   /**************************************************************/
   @media (max-width: 610px) {
+    section{
+      width:80%;
+    }
+    footer img{
+      width:35%;  
+    }
+    #sign_up2 {   
+      width:100%;  
+      overflow: hidden;
+    }
+    .top_bg{   
+      display: block;
+      width:120%; 
+      position: relative;
+      top: -105px; 
+      left:-10%; 
+  
+    }
+    .bottom_bg{   
+      display: block;
+      width:120%; 
+      position: relative;
+      bottom: -75px; 
+      left:-40px;
+  
+    }
     #main input[type="text"]{
       width:56%;
     }
@@ -357,8 +486,7 @@ footer div{
       width:25%; 
     }
     #loading img{ 
-      width:35%; 
-      height:28%; 
-      display: block;  
+      width:80%;   
+      margin-top: 60%;
   }
   }  

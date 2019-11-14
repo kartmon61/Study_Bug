@@ -1,6 +1,14 @@
 {% extends 'nh_layout.html' %}
 {% block layoutblock %}
- 
+<style>
+    @media (max-width: 610px) {    
+        html{
+            width:100%;
+            height:100%;
+            overflow: hidden;  
+        }
+    }
+</style>
 <script>
   
     function chk_i(e){
@@ -28,29 +36,33 @@
     
    
 </script>
+
 <section id="sign_up2"> 
+    <img src="/static/img/leafup.png" class="top_bg">
     <!--최초 회원 가입일떄 관심사 고르게 하는 페이지 -->
-    <h1>관심사가 있으세요?</h1>
-    
+    <h1>무엇을<br/><strong>공부</strong>하고 있나요?</h1>
+     
     {%if interest %}
     {% for i in interest %}
     <a href="#"  class="cate">{{i.name}}</a>
     {% endfor %}
     {% endif %}
-    <a href="#" class="cate" onclick="chk_i(this)">회계</a>
-    
-    <script>
-        //임시로 쓴 거 
-        for(i=0;i<5;i++){
-            document.write(" <a href='#' class='cate' onclick='chk_i(this)'>재무"+i+"</a> ");
-        }
-    </script>
-    
+    <ul>
+        <li class="cate"><a href="#" onclick="chk_i(this)">경영</a></li>
+        <li class="cate"><a href="#" onclick="chk_i(this)">물류</a></li>
+        <li class="cate"><a href="#" onclick="chk_i(this)">화학</a></li> <br/>
+        <li class="cate"><a href="#" onclick="chk_i(this)">건축</a></li>
+        <li class="cate"><a href="#" onclick="chk_i(this)">전기</a></li>
+        <li class="cate"><a href="#" onclick="chk_i(this)">컴퓨터</a></li> 
+    </ul>    
+    <h2 onclick="f_submit()">넘어가기</h2>
     <form action="" method="POST">
         {% csrf_token %}
         <input type="hidden" id="user_id" name="user_id"> <!-- 앞에 회원 가입 페이지에서 아이디 넘겨 받아야됨-->
         <input type="hidden" id="user_interest" name="user_interest">
     </form>
-    <a href="#" class= "inp active" onclick="f_submit()">다음</a>
+    <!--<a href="#" class= "inp active" onclick="f_submit()">다음</a>-->
+
+    <img src="/static/img/leafdown.png" class="bottom_bg">
 </section>
 {% endblock %} 

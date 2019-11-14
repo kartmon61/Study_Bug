@@ -17,7 +17,8 @@
     <input type="hidden" value="{{user.username}}" name="comm_nm">
 </form> 
 
-{% for comment in comm_post.comments.all %}
+
+{% for comment in comm_post.comment_set.all %}
 <div class="comment">
     <div>
         <p><strong>{{comment.author}}</strong></p> 

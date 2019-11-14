@@ -24,7 +24,8 @@ class Student(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User,on_delete=True,null=True,default=1)
+    author = models.CharField(max_length=200,null=True,default=1)
+    student = models.ForeignKey(Student,on_delete=models.CASCADE, null=True)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     approved_comment = models.BooleanField(default=False)

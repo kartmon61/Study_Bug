@@ -40,15 +40,15 @@ class PostDelete(DeleteView): #html : 삭제 확인 html (소문자모델)_confi
 def commentcreate(request,post_id):
     if(request.method == 'POST'):
         one_post = get_object_or_404(Student,id=post_id)
-        one_post.comment_set.create(content=request.POST['comment_content'],author=request.POST['comm_nm'])
-    return redirect('main/detail/'+str(post_id))
+        one_post.comment_set.create(text=request.POST['comment_content'],author=request.POST['comm_nm'])
+    return redirect('/main/detail/'+str(post_id))
 
 def commentdelete(request,post_id,comment_id):
         one_comment = get_object_or_404(Comment,id=comment_id,posting=post_id)
         if one_comment.author == User.objects.get(username = request.user.get_username()):
                 one_comment = get_object_or_404(Comment,id=comment_id,posting=post_id)
                 one_comment.delete()
-                return redirect('main/detail/'+str(post_id))
+                return redirect('/main/detail/'+str(post_id))
         else:
                 return redirectForm(request, '댓글을 삭제할 수 없습니다.' )
 

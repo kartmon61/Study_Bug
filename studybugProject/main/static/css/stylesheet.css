@@ -59,26 +59,28 @@ footer div{
     animation-duration: 2s;
   }
   
-  @keyframes fade {
-    from {
-      opacity: 0; 
-    }
-    to {
-      opacity: 1; 
-    }
+@keyframes fade {
+  from {
+    opacity: 0; 
   }
-  .cate{
-    display: inline-block;
-    margin:5px;
-    background-color: #ffffff;
-    box-shadow: 1px 1px rgba(46, 46, 46, 0.295);
-    border-radius: 17px;
-    padding:10px 30px;  
+  to {
+    opacity: 1; 
+  }
+}
+.cate{
+  display: inline-block;
+  margin:5px; 
+  background-color: #ffffff;
+  box-shadow: 1px 1px rgba(46, 46, 46, 0.295);
+  border-radius: 17px;
+  padding:10px 10px;  
+  width:50px;
+  text-align: center;
 
-    }
-    .cate:hover{
-        background-color:#f1f1f1;
-    }
+  }
+  .cate:hover{
+      background-color:#f1f1f1;
+  }
 
  
 .active {
@@ -109,8 +111,7 @@ footer div{
   margin:auto;
 }
 
-.float_btn{
-  display: block;
+.float_btn{ 
   border-radius: 100%;
   font-size: 1.8em;
   font-weight: bold;
@@ -119,35 +120,101 @@ footer div{
   padding:15px 20px;
   color:#ffffff;
   position: fixed;
-  bottom:20px;
+  bottom:8%;
   right:15px;
   z-index: 10000;
 }
 
+.reviewList{  
+  display: block;
+  width:90%;   
+  margin: auto; 
+  padding:15px 0px;
+  border-bottom: 1px solid #eeeeee;
+  
+}
+.review{
+  display: -webkit-box; 
+  display: -ms-flexbox; 
+  display: box; 
+  margin-top:1px; 
+  max-height:80px; 
+  overflow:hidden; 
+  vertical-align:top; 
+  text-overflow: ellipsis;
+  word-break:break-all; 
+  -webkit-box-orient:vertical; 
+  -webkit-line-clamp:3
 
+}
+
+.menu{
+  display: inline-block;
+  font-size: 1em;
+  margin-right:20px;
+  padding:10px 0px;
+}
+
+.menu a:hover, .menu a:active, .menu_active{
+  color: brown;
+  border-bottom:1px solid brown;
+}
+
+.bg{
+  width:100%;
+  height:100%; 
+  z-index: 100000000000;
+  position: fixed;
+  top:0;
+  background-color:rgba(12, 1, 73, 0.575); 
+  display:none;
+}
+.pop_up{ 
+  display:none;
+  width:80%;  
+  top:15%;
+  left:3%;
+  padding:10px;
+  position:fixed;
+  z-index: 100000000001;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.pop_up a{  
+  position: relative;
+  display:block;
+  float:right; 
+  margin-right:15px;
+  font-family: 'Darker Grotesque', sans-serif;
+}
+.pop_up_con{
+  margin-top:50px;
+  width:100%;
+  padding-bottom:30px; 
+}
+ 
+.inline{
+  display: inline-block;
+}
 /*******************************/
 
 
   #loading{
       width:100%;
       padding:0px;  
-      background-color: aquamarine;   
-      text-align:center;
-      font-size: 0.8em;
+      background-color:#ffffff;
   }
-  #loading img{ 
-      width:20%; 
-      height:30%; 
-      display: block; 
-      border: 1px solid red;
-  }
-  #loading div{  
+  #loading img{
     display: block; 
-    position: relative;
-    top:30%;
-  }
-  #loading h1{
-      margin-top:30px;
+    width: 80%;
+    margin:auto;
+    
+    /* 
+      width:25%; 
+      height:35%; 
+      position: relative;
+      top:30%;
+      */
   }
  
 /*******************************/ 
@@ -174,7 +241,9 @@ footer div{
 
 /*******************************/ 
   #sign_up2 { 
-    height: 100%;      
+    width:90%;
+    margin:auto; 
+    height: 100%;    
   }
   #sign_up2 .inp{
       width:10%; 
@@ -186,8 +255,9 @@ footer div{
   }
   #sign_up2 h1{
     font-size: 1.5em;
-      display: block;
-      margin-bottom: 30px;
+    display: block;
+    margin-left:15px;
+    margin-bottom: 30px; 
   }
  
 
@@ -207,64 +277,22 @@ footer div{
     margin: auto;
     text-align: center;
   }
-
-  #main input{
-    display: inline-block; 
+ 
+   
+  #main input {
+    display: inline-block;
   }
-
   #main input[type="text"]{
     width:61.5%;
   }
   #main input[type="submit"]{
     width:25%; 
   }
-
-  @media (max-width: 610px) {
-    #main input[type="text"]{
-      width:56%;
-    }
-    #main input[type="submit"]{
-      width:25%; 
-    }
-  }  
   #main h1{
     margin-left:5%;
     margin-top:3%;
   }
-  .reviewList{  
-    display: block;
-    width:90%;   
-    margin: auto; 
-    padding:15px 0px;
-    border-bottom: 1px solid #eeeeee;
-    
-  }
-  .review{
-    display: -webkit-box; 
-    display: -ms-flexbox; 
-    display: box; 
-    margin-top:1px; 
-    max-height:80px; 
-    overflow:hidden; 
-    vertical-align:top; 
-    text-overflow: ellipsis;
-    word-break:break-all; 
-    -webkit-box-orient:vertical; 
-    -webkit-line-clamp:3
- 
-  }
-
-  .menu{
-    display: inline-block;
-    font-size: 1em;
-    margin-right:20px;
-    padding:10px 0px;
-  }
- 
-  .menu a:hover, .menu a:active, .menu_active{
-    color: brown;
-    border-bottom:1px solid brown;
-  }
+  
   nav div{
     width:90%;
     margin:auto;
@@ -276,3 +304,61 @@ footer div{
     overflow-x:auto;
     white-space: nowrap;   
   }
+/*************************************************************/
+#review_new{
+  margin-top: 30px;
+}
+
+#review_new div{
+  margin-left:4%;
+}
+ 
+#review_new input[type='text']{
+  width:90%;
+}
+#review_new textarea{
+  width:90%;
+  height: 200px;
+}
+#review_new li{
+  display: inline-block;
+}
+ 
+#review_new .pop_up_con form,#review_new .pop_up_con ul{
+  display: block;
+  width:100%; 
+  text-align: center;
+}
+#review_new .pop_up_con input:nth-child(2){
+  width:50%;
+}
+#review_new .pop_up_con input:nth-child(3){
+  width:30%;
+}
+#review_new .pop_up_con ul {
+  width:90%;
+  height: 200px;
+  overflow-y: auto;
+}
+.list_{ 
+  width:90%; 
+  border-bottom: 1px solid #eeeeee;
+  padding:10px 5px;
+  text-align: left;
+  cursor: pointer;
+}
+ 
+  /**************************************************************/
+  @media (max-width: 610px) {
+    #main input[type="text"]{
+      width:56%;
+    }
+    #main input[type="submit"]{
+      width:25%; 
+    }
+    #loading img{ 
+      width:35%; 
+      height:28%; 
+      display: block;  
+  }
+  }  

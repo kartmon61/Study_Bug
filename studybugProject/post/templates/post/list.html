@@ -1,0 +1,16 @@
+<body>
+    <a href="{% url 'new' %}">추가</a>
+    <br>
+
+    {% for post in comm_list %}
+        <h2>{{post.title}}</h2>
+        <h5>{{post.created_at}}</h5>
+        <h5>별점 - {{post.rate}}</h5>
+        <p>내용 - {{post.body}}</p>
+        <a href="{% url 'detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+        <a href = "{% url 'detail' post.id %}" >자세히 보기</a>
+        <a href = "{% url 'change' post.id %}" >수정</a>
+        <a href = "{% url 'del' post.id %}" >삭제</a>
+        <hr>
+    {% endfor %}
+</body>

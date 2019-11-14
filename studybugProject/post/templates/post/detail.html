@@ -1,0 +1,22 @@
+<h1>자세히 보기 페이지</h1>
+<hr>
+
+<h2> 제목 : {{comm_post.title}} </h2>
+<h4> 날짜 : {{comm_post.created_at}}</h4>
+<h4> 별점 : {{comm_post.rate}}</h4>
+본문 : {{comm_post.body}}
+<hr>
+<a href="{% url 'comment_update' pk=comm_post.pk %}">댓글 추가</a>
+
+{% for comment in comm_post.comments.all %}
+<div class="comment">
+    <div>
+        <p><strong>{{comment.author}}</strong></p> 
+        <p>{{comment.created_at}}</p> 
+    </div>
+    <p>{{comment.content}}</p>
+</div>
+<a href="{% url 'comment_delete' pk=comm_post.pk %}">댓글 삭제</a>
+{% empty %}
+<p>No comments here yet :(</p>
+{% endfor %}

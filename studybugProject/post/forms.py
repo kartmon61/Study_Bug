@@ -1,5 +1,5 @@
 from django import forms
-from .models import University, Student
+from .models import University, Student, Comment
 from .widgets import CounterTextInput, starWidget
 
 # 생략
@@ -20,3 +20,9 @@ class PostForm(forms.ModelForm):
         widgets = {
             'grade': starWidget,
         }
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)

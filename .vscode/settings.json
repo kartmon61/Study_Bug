@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "studybug/bin/python3"
+    "python.pythonPath": "studybug/bin/python3",
+    "python.linting.enabled": false
 }

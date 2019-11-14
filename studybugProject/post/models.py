@@ -24,7 +24,6 @@ class Student(models.Model):
 
 
 class Comment(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, related_name='comments')
     author = models.ForeignKey(User,on_delete=True,null=True,default=1)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

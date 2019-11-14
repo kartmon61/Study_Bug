@@ -6,7 +6,16 @@
 <h4> 별점 : {{comm_post.rate}}</h4>
 본문 : {{comm_post.body}}
 <hr>
-<a href="{% url 'comment_update' pk=comm_post.pk %}">댓글 추가</a>
+<form action="commentcreate/{{comm_post.id}}" method="POST">
+    {% csrf_token %} 
+    <textarea name="comment_content" 
+              id="comment_content" 
+              cols="30" rows="5" 
+              placeholder="comment"
+              class="input_"></textarea>
+    <input type="submit" class="btn input_" value="댓글추가">
+    <input type="hidden" value="{{user.username}}" name="comm_nm">
+</form> 
 
 {% for comment in comm_post.comments.all %}
 <div class="comment">
@@ -16,7 +25,9 @@
     </div>
     <p>{{comment.content}}</p>
 </div>
-<a href="{% url 'comment_delete' pk=comm_post.pk %}">댓글 삭제</a>
+{% if comment.author == user.username  %}
+        <a href="commentdelete/{{posts.id}}/{{comment.id}}" class="delete">댓글 삭제</a>
+{%endif%}
 {% empty %}
-<p>No comments here yet :(</p>
+<p>댓글이 없습니다.</p>
 {% endfor %}

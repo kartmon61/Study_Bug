@@ -14,18 +14,21 @@
 </script>
  <section id="review_new">
      <form action="" method="POST">
-        {% csrf_token %} 
+        {% csrf_token %}
+        <!-- 라이센스 선택 -->
         {{form.license_on}}
         <input type="text" class="inp popup_open" pop_nm="lic_search" placeholder="자격증 검색" required readonly >
         <div>
-            {{form.rate}}
+            
             <ul>
                 <li><img class="r_pnt" src="" alt="별1"></li>
                 <li><img class="r_pnt" src="" alt="별2"></li>
                 <li><img class="r_pnt" src="" alt="별3"></li>
                 <li><img class="r_pnt" src="" alt="별4"></li>
                 <li><img class="r_pnt" src="" alt="별5"></li>
-            </ul> 
+            </ul>
+            <!-- 별점 입력 -->
+            {{form.rate}}
             <script>
                 //임시로 쓴 거 
                 for(i=0;i<7;i++){

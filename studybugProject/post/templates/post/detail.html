@@ -1,7 +1,7 @@
 <h1>자세히 보기 페이지</h1>
 <hr>
 
-<h2> 제목 : {{comm_post.title}} </h2>
+<h2> 자격증 : {{comm_post.license_on.name}} </h2>
 <h4> 날짜 : {{comm_post.created_at}}</h4>
 <h4> 별점 : {{comm_post.rate}}</h4>
 본문 : {{comm_post.body}}
@@ -27,7 +27,7 @@
     <p>{{comment.text}}</p>
 </div>
 {% if comment.author == user.username  %}
-        <a href="commentdelete/{{posts.id}}/{{comment.id}}" class="delete">댓글 삭제</a>
+        <a href="commentdelete/{{comm_post.id}}/{{comment.id}}" class="delete">댓글 삭제</a>
 {%endif%}
 {% empty %}
 <p>댓글이 없습니다.</p>

@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Student, University, Comment
+from .models import Student, Comment
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -18,7 +18,7 @@ class PostView(ListView):   #html 템플릿 : 블로그 리스트를 담은 html
 class PostCreate(CreateView): #html : form (입력공간)을 갖고 있는 html : (소문자모델)_form.html
     template_name = 'post/create.html'
     model = Student
-    fields = ['title','body','rate']
+    fields = ['license_on','body','rate']
     success_url = reverse_lazy('list')
 
 class PostDetail(DetailView): #html : 상세 페이지를 담은 html : (소문자모델)_detail.html
@@ -29,7 +29,7 @@ class PostDetail(DetailView): #html : 상세 페이지를 담은 html : (소문�
 class PostUpdate(UpdateView): #html : form (입력공간)을 갖고 있는 html : (소문자모델)_form.html
     template_name = 'post/create.html'
     model = Student
-    fields = ['title','body','rate']
+    fields = ['license_on','body','rate']
     success_url = reverse_lazy('list')
 
 class PostDelete(DeleteView): #html : 삭제 확인 html (소문자모델)_confirm_delete.html
@@ -44,14 +44,16 @@ def commentcreate(request,post_id):
     return redirect('/main/detail/'+str(post_id))
 
 def commentdelete(request,post_id,comment_id):
-        one_comment = get_object_or_404(Comment,id=comment_id,posting=post_id)
+        one_comment = get_object_or_404(Comment,id=comment_id,student=post_id)
         if one_comment.author == User.objects.get(username = request.user.get_username()):
-                one_comment = get_object_or_404(Comment,id=comment_id,posting=post_id)
+                one_comment = get_object_or_404(Comment,id=comment_id,student=post_id)
                 one_comment.delete()
                 return redirect('/main/detail/'+str(post_id))
         else:
                 return redirectForm(request, '댓글을 삭제할 수 없습니다.' )
 
+def redirectForm(request,msg):
+        return render(request, 'redirect.html', {'msg': msg})
 
 # class CommentUpdate(UpdateView):
 #     model = Comment

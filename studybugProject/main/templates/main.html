@@ -1,42 +1,62 @@
 {% extends 'layout.html' %}
 {% block layoutblock %}
- 
+<script>
+    $(function(){
+        var rlist = document.getElementsByClassName("rate");
+        for(i of rlist){
+            var r = i.getAttribute("value");
+            var n = i.getAttribute("no");
+            $("div[no='"+n+"']").append(print_rate(r));
+        } 
+
+        function print_rate(n){
+            var s = "";
+            var vs = "";
+            for(i=0;i<5;i++){
+                if(i<n) s+="★";
+                else vs+="☆";
+            }
+            return(s+vs);
+        }
+    });
+</script>
 <section id="main">
     <nav>
         <!-- 검색 -->
         <form action="" method="GET">
             <input class="inp" type="text" id="search_keyword" name="search_keyword">
-            <input class="inp btn" type="submit" value="검색">
+            <input class="inp btn" type="submit" value="검">
         </form>
         <br>
         <a href="post">리뷰 작성 Test</a>
         <!-- 메뉴 -->
-        <div>
+        <div> 
             <ul>
-                <!--<li class="left"><a href="">&lt;</a></li>
-                <li class="right"><a href="">&gt;</a></li>-->
-                <script>
-                    for(i=0;i<7;i++)
-                    document.write("<li class='menu'><a href='#'>재무</a></li>");
-                </script>
-            </ul>
+                <li class="cate"><a href="#" onclick="chk_i(this)">경영</a></li>
+                <li class="cate"><a href="#" onclick="chk_i(this)">물류</a></li>
+                <li class="cate"><a href="#" onclick="chk_i(this)">화학</a></li> <br/>
+                <li class="cate"><a href="#" onclick="chk_i(this)">건축</a></li>
+                <li class="cate"><a href="#" onclick="chk_i(this)">전기</a></li>
+                <li class="cate"><a href="#" onclick="chk_i(this)">컴퓨터</a></li> 
+            </ul>     
         </div>
     </nav>
     <article>
-        <h1>최신 후기</h1>
+        <img src="/static/img/recent.png" class="title_img">
         <ul>            
             {% if rlist %}
             {% for r in rlist %}
             <li class="reviewList">
                 <a href="#">
-                    <div>
-                        <input type="hidden" value="r.point"> <!--별점 갯수 적어놨다가 자바스크립트로 처리-->
+                    <div no="{{r.id}}">
+                        <input type="hidden" class="rate" value="{{r.rate}}" no="{{r.id}}"> <!--별점 갯수 적어놨다가 자바스크립트로 처리-->
                     </div>
-                    <div class='review'>{{r.content}}</div>
+                    <div class='review'>{{r.body}}</div>
                 </a>
             </li>
             {% endfor %}
             {% endif %}
+            <!--
             <script>
                 for(i=0;i<5;i++){
                     document.write("<a href='#'>"+
@@ -47,6 +67,7 @@
                                    "</div></li></a>");
                 }
             </script>
+            -->
         </ul>
     </article>
 </section>

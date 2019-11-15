@@ -3,30 +3,16 @@
 <html lang="kor">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <!-- 1. Link to jQuery (1.8 or later), -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB --> 
     <link rel="stylesheet" type="text/css" href="/static/css/stylesheet.css?{% now 'U' %}"/>
+    <script src="../static/js/main.js?{% now 'U' %}"></script>
     <title>License bug</title>
     <script>
-        function chk_i(e,ative){
-        console.log(e.classList);
-            if(e.classList.contains(ative)) e.classList.remove(ative);
-            else {
-                e.classList.add(ative); 
-                }
-        }
-
-        function pu_close(){ 
-            $(".bg").hide();
-            $(".pop_up").hide();  
-        }
-
-        function _back(){
-            history.back();
-        }
+       
         $(function(){  
             //로그인 팝업 
             $(".popup_open").click(function(){ 
@@ -46,7 +32,7 @@
                     $(".float_btn").hide();
             }else{
                 $(".float_btn").click(function(){
-                 location.href="/review/new";
+                 location.href="newpost";
                 });
             }
                  
@@ -59,21 +45,15 @@
 
     <div class="bg"></div> 
     <header>
-        header
-        <a href="#" class="left" onclick="_back()" >뒤로</a>
-        <a href="#" class="right">내 정보</a>
+        <img class="center logo" src="../static/img/logo.png">
+        <a href="#" class="left" onclick="_back()" ><img src="../static/img/back.png"></a>
+        <a href="#" class="right"><img src="../static/img/menu.png"></a>
     </header>
     {% block layoutblock %}
     {% endblock %}  
     <div class="float_btn">+</div> 
     <footer>
-            <div>
-                <strong>License bug</strong><br/>
-                진호&nbsp;|&nbsp;kartmon@naver.com<br/>
-                정인&nbsp;|&nbsp;alslahdk@naver.com<br/> 
-                소희&nbsp;|&nbsp;alslahdk@naver.com<br/> 
-                혜린&nbsp;|&nbsp;alslahdk@naver.com<br/> 
-            </div>        
-    </footer>
+        <img class="center bottom" src="/static/img/create.png">
+    </footer> 
 </body>
 </html>

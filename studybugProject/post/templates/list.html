@@ -1,14 +1,10 @@
+{% extends 'layout.html'%}
 {% block layoutblock %}
-
-
-
-
 <a href="/post/new" class="btn purple">글쓰기</a>
-
+ 
 {%if page_posts %}
     {% for post in page_posts %}
             
-    
     <h3>{{post.license_on.name}}</h3>
     
     <h4>작성자 {{post.author}}</h4>

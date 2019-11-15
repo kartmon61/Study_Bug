@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 
 from django.urls import reverse_lazy
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404,get_list_or_404
 from .models import Student, Comment, Category, License
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def Post(request):
-    posts = Student.objects.all()
+    posts = Student.objects.all()  
     category = Category.objects.all()
     #키워드 검색
     keyword = request.GET.get('search')
@@ -25,6 +25,19 @@ def Post(request):
     page_posts = paginator.get_page(page)
 
     return render(request,'list.html',{'page_posts':page_posts})
+
+def Mpost(request,category_id):
+    category = get_list_or_404(Category,code_no=category_id)
+    try :
+        posts = get_list_or_404(Student,category=category_id)
+        #페이지화
+        paginator = Paginator(posts,5) 
+        page = request.GET.get('page')
+        page_posts = paginator.get_page(page)
+        return render(request,'list.html',{'page_posts':page_posts})
+    except :
+        posts = None
+        return render(request,'list.html')
 
 
 def PostNew(request):

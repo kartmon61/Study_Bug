@@ -13,6 +13,7 @@ class License(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=200,null=True)
+    code_no = models.CharField(max_length=200,null=True)
 
 class Student(models.Model):
     title = models.CharField(max_length=200,null=True,default="")

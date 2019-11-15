@@ -1,0 +1,77 @@
+{% block layoutblock %}
+
+
+
+
+<a href="/post/new" class="btn purple">글쓰기</a>
+
+{%if page_posts %}
+    {% for post in page_posts %}
+            
+    
+    <h3>{{post.license_on.name}}</h3>
+    
+    <h4>작성자 {{post.author}}</h4>
+    <h4>{{post.created_at | date:"Y-m-d-f" }} </h4>
+    {% if post.postingcomment_set.count != 0 %}
+       <h5>{{post.postingcomment_set.count}}</h5>
+    {%endif%}
+    <a href="/post/show/{{post.id}}">자세히 보기</a>                 
+ 
+    {% endfor %}
+{%else%}
+    <td>글이 없습니다.</td>
+{%endif%}
+
+    <ul class="paging">
+        {%if page_posts.has_previous%}
+          <li><a href="?page={{page_posts.previous_page_number}}">&lt;</a></li>
+        {%endif%}
+        {%for i in page_posts.paginator.page_range%}
+          {% if i == page_posts.number%}
+          <li><a href="?page={{page_posts.number}}" class="active">{{i}}</a></li>
+          {%else%}
+          <li><a href="?page={{page_posts.number}}">{{i}}</a></li>
+          {%endif%}
+       {%endfor%}
+
+       {%if page_posts.has_next%}
+       <li><a href="?page={{page_posts.next_page_number}}">&gt;</a></li> 
+       {%endif%} 
+    </ul> 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
+    <a href="{% url 'new' %}">추가</a>
+    <br>
+
+    {% for post in comm_list %}
+        <h2>{{post.license_on.name}}</h2>
+        <h5>{{post.created_at}}</h5>
+        <h5>별점 - {{post.rate}}</h5>
+        <p>내용 - {{post.body}}</p>
+        <a href="{% url 'detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+        <a href = "{% url 'detail' post.id %}" >자세히 보기</a>
+        <a href = "{% url 'change' post.id %}" >수정</a>
+        <a href = "{% url 'del' post.id %}" >삭제</a>
+        <hr>
+    {% endfor %}
+</body> -->

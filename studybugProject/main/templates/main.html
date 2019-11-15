@@ -21,6 +21,12 @@
             <input class="inp" type="text" id="search_keyword" name="search_keyword">
         </form>
         <br>
+        <form action="{%url 'list'%}" method="GET">
+            <input class="inp" type="text" id="search_keyword" name="search_keyword">
+            <input class="inp btn" type="submit" value="검색">
+        </form>
+        <br>
+        
         <!-- 메뉴 -->
         <div> 
             <ul>
@@ -66,5 +72,7 @@
             -->
         </ul>
     </article>
+
+    <a href="../post">리뷰 작성 Test</a>
 </section>
 {% endblock %}

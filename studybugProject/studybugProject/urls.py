@@ -24,7 +24,7 @@ urlpatterns = [
     path('main/',include('main.urls')),
     path('',include('login.urls')),
     #글쓰고 보여주는 페이지
-    path('main/',include('post.urls')),
+    path('post/',include('post.urls')),
     
 ]
 

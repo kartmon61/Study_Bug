@@ -21,11 +21,11 @@ def login(request):
 def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
-            user = User.objects.create_user( username=request.POST['username'],password=request.POST['password1'],email=request.POST['email'])
-            auth.login(request, user)
-            return render(request,'login.html')
-    return render(request,'signup.html')
-
+            user = User.objects.create_user(
+                username=request.POST['email'],password=request.POST['password1'])
+            auth.login(request, user,backend='django.contrib.auth.backends.ModelBackend')
+            return render(request,'signup2.html')
+    return render(request,'login.html')
 
 #로그아웃 함수
 def logout(request):

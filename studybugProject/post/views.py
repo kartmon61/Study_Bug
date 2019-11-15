@@ -28,13 +28,19 @@ def Post(request):
 
 def Mpost(request,category_id):
     category = get_list_or_404(Category,code_no=category_id)
+    comm_cnt = []
     try :
         posts = get_list_or_404(Student,category=category_id)
+        for i in posts:
+            one_post = get_object_or_404(Student,id=i.id)
+            comments = one_post.comment_set.all()
+            comm_cnt.append(len(comments)) 
+
         #페이지화
         paginator = Paginator(posts,5) 
         page = request.GET.get('page')
         page_posts = paginator.get_page(page)
-        return render(request,'list.html',{'page_posts':page_posts})
+        return render(request,'list.html',{'page_posts':page_posts,'comm_cnt':comm_cnt,'cnt':""})
     except :
         posts = None
         return render(request,'list.html')

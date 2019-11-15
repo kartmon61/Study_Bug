@@ -32,11 +32,25 @@
                     $(".float_btn").hide();
             }else{
                 $(".float_btn").click(function(){
-                 location.href="../post";
+                 location.href="../post/new/";
                 });
             }
             
-                 
+            var rlist = document.getElementsByClassName("rate");
+            for(i of rlist){
+                var r = i.getAttribute("value");
+                var n = i.getAttribute("no"); 
+                var difficulty = ["엄청 쉬웠어요","쉬웠어요","보통이에요","어려웠어요","매우어려웠어요"];
+                $("p[no='"+n+"']").html(difficulty[r-1]);
+            } 
+            
+            $(".sel_btn").click(function(){
+                $(".sel_wrap").toggle();
+            });
+            $(".sel_li").click(function(){
+                $(".sel_btn>div").text($(this).text());
+                $(".sel_wrap").toggle();
+            });
         });
 
        

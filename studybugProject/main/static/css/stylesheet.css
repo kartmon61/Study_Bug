@@ -5,6 +5,8 @@
     font-family: 'Gothic A1','Nanum Gothic', sans-serif;
     --basic-br-color:#eeeeee; /*기본 border 색깔 변수*/
     --basic-txt-color:#383838;/*기본 글자 색깔 변수*/ 
+    --red:#FA5A5A;
+    --gray:#9C9C9C;
     padding:0;
     margin:0;
 }
@@ -40,21 +42,14 @@ header{
   top:0;
 }
 header .right,header .left{
-  margin-top:-20%;
-}
-header .left{
-  margin-left:-15%; 
+  margin-top:-9%;
 } 
-header .right{ 
-  margin-right:-15%; 
-   
-}
 header img{
-  width:40%;
+  width:50%;
 }
 header .logo{
   clear: both;  
-  width:50%; 
+  width:20%; 
   position: relative;
   top:5px;
 } 
@@ -76,6 +71,7 @@ footer img{
 .left{float:left;}
 .right{float:right;}
 .blue{color:#54B5FF;}
+.red{color:#FA5A5A;}
 .gray{color:#9C9C9C;}
 .underline{text-decoration: underline;}
 .fade {
@@ -156,7 +152,7 @@ footer img{
   font-weight: bold;
   background-color: crimson;
   box-shadow: 3px 2px rgba(0, 0, 0, 0.199);
-  padding:15px 20px;
+  padding:10px 20px;
   color:#ffffff;
   position: fixed;
   bottom:8%;
@@ -166,13 +162,16 @@ footer img{
 
 .reviewList{  
   display: block;
-  width:90%;   
-  margin: auto; 
-  padding:45px 0px; 
+  width:65%;   
+  margin: 0px auto 20px auto; 
+  padding:15px 20px;
+  background: rgb(245, 245, 245);
+  box-shadow: 0px 3px rgba(0, 0, 0, 0.247);
+  /* 
   background-image: url("../img/text.png");
   background-repeat: no-repeat;
   background-size: cover;
-  
+  */
 }
 .review{
   display: -webkit-box; 
@@ -185,10 +184,16 @@ footer img{
   text-overflow: ellipsis;
   word-break:break-all; 
   -webkit-box-orient:vertical; 
-  -webkit-line-clamp:3
-
+  -webkit-line-clamp:3;
+  width:90%;
+  margin:auto;
+  clear: both;
 }
-
+.icon{
+  width:30px;
+  margin-top:-9px;
+}
+/*
 .menu{
   display: inline-block;
   font-size: 1em;
@@ -200,7 +205,7 @@ footer img{
   color: brown;
   border-bottom:1px solid brown;
 }
-
+*/
 .bg{
   width:100%;
   height:100%; 
@@ -360,7 +365,8 @@ footer img{
    
   /********************************/
   .title_img{
-    width:50%;
+    width:30%;
+    margin-left: 30px;
   }
   #main{
     width:100%;
@@ -391,11 +397,28 @@ footer img{
   #main input[type="submit"]{
     width:25%; 
   }
+  #main .status{
+    margin-top:-23px;
+    font-size: 0.8em;
+  }
   #main h1{
     margin-left:5%;
     margin-top:3%;
   }
-  
+  #main .reviewList .small{
+    margin-left:12px;
+  }
+  #main .reviewList h1{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  #main .reviewList h3{
+    margin-left:15px;
+  }
+  article{
+    width:70%;
+    margin:auto;
+  }
   nav div{
     width:90%;
     margin:auto;
@@ -409,7 +432,7 @@ footer img{
   }
 /*************************************************************/
 #review_new{
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 #review_new div{
@@ -419,9 +442,9 @@ footer img{
 #review_new input[type='text']{
   width:90%;
 }
-#review_new textarea{
+#review_cont{
   width:90%;
-  height: 200px;
+  margin:auto;
 }
 #review_new li{
   display: inline-block;
@@ -488,5 +511,32 @@ footer img{
     #loading img{ 
       width:80%;   
       margin-top: 60%;
-  }
+    }
+    .title_img{
+      width:50%;
+    }
+    header .logo{
+      clear: both;  
+      width:30%; 
+      position: relative;
+      top:5px;
+    } 
+
+    header .right,header .left{
+      margin-top:-13%;
+    }
+    header .left{
+      margin-left:-13%; 
+    } 
+    header .right{ 
+      margin-right:-15%; 
+       
+    }
+    header img{
+      width:40%;
+    }
+    article{
+      width:100%;
+      margin:auto;
+    }
   }  

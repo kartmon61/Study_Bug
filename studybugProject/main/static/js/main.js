@@ -1,3 +1,4 @@
+
 function chk_i(e){
     console.log(e.classList);
         if(e.classList.contains("active")) e.classList.remove("active");

@@ -145,7 +145,7 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/signup2/'
 
 # 로그인 기타 설정들 #
 

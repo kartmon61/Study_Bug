@@ -6,29 +6,21 @@
         for(i of rlist){
             var r = i.getAttribute("value");
             var n = i.getAttribute("no");
-            $("div[no='"+n+"']").append(print_rate(r));
+            console.log(r);
+            var difficulty = ["엄청 쉬웠어요","쉬웠어요","보통이에요","어려웠어요","매우어려웠어요"];
+            $("p[no='"+n+"']").html(difficulty[r-1]);
         } 
-
-        function print_rate(n){
-            var s = "";
-            var vs = "";
-            for(i=0;i<5;i++){
-                if(i<n) s+="★";
-                else vs+="☆";
-            }
-            return(s+vs);
-        }
     });
+
 </script>
 <section id="main">
     <nav>
         <!-- 검색 -->
         <form action="" method="GET">
-            <input class="inp" type="text" id="search_keyword" name="search_keyword">
             <input class="inp btn" type="submit" value="검">
+            <input class="inp" type="text" id="search_keyword" name="search_keyword">
         </form>
         <br>
-        <a href="post">리뷰 작성 Test</a>
         <!-- 메뉴 -->
         <div> 
             <ul>
@@ -47,10 +39,14 @@
             {% if rlist %}
             {% for r in rlist %}
             <li class="reviewList">
-                <a href="#">
-                    <div no="{{r.id}}">
+                <a href="{% url 'detail' r.id %}">
+                    <div>
                         <input type="hidden" class="rate" value="{{r.rate}}" no="{{r.id}}"> <!--별점 갯수 적어놨다가 자바스크립트로 처리-->
                     </div>
+                    <h3>{{r.author}}</h3>
+                    <p class="right red status" no="{{r.id}}"></p>
+                    <h1>{{r.license_on.name}}</h1>
+                    <p class="small"><img class="icon left" src="/static/img/calender.png">{{r.created_at}}</p>
                     <div class='review'>{{r.body}}</div>
                 </a>
             </li>

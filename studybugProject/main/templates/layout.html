@@ -9,7 +9,7 @@
     <!-- 1. Link to jQuery (1.8 or later), -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB --> 
     <link rel="stylesheet" type="text/css" href="/static/css/stylesheet.css?{% now 'U' %}"/>
-    <script src="../static/js/main.js?{% now 'U' %}"></script>
+    <script src="/static/js/main.js?{% now 'U' %}"></script>
     <title>License bug</title>
     <script>
        
@@ -35,6 +35,7 @@
                  location.href="newpost";
                 });
             }
+            
                  
         });
 
@@ -45,9 +46,9 @@
 
     <div class="bg"></div> 
     <header>
-        <img class="center logo" src="../static/img/logo.png">
-        <a href="#" class="left" onclick="_back()" ><img src="../static/img/back.png"></a>
-        <a href="#" class="right"><img src="../static/img/menu.png"></a>
+        <img class="center logo" src="/static/img/logo.png">
+        <a href="#" class="left" onclick="_back()" ><img src="/static/img/back.png"></a>
+        <a href="#" class="right"><img src="/static/img/menu.png"></a>
     </header>
     {% block layoutblock %}
     {% endblock %}  

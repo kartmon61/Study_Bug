@@ -8,5 +8,5 @@ urlpatterns = [
     path('logout/',views.logout,name='logout'),
     path('accounts/',include('allauth.urls')),
     path('',views.loading,name='loading'),
-    path('signup2',views.signup2,name='signup2'),
+    path('signup2/',views.signup2,name='signup2'),
 ]

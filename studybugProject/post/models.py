@@ -9,16 +9,19 @@ from django.contrib.auth.models import User
 #     grade = models.IntegerField()
 
 class License(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    LICENSE_CHOICES = (
+            ('a',"산업기사자격증"),
+            ('b',"물류기사자격증"),
+        )
+    licences = models.CharField(max_length=2,choices=LICENSE_CHOICES,default=True)
 
 
 class Student(models.Model):
-    #title = models.CharField(max_length=100, null=True)
+    title = models.CharField(max_length=200,null=True)
     author = models.ForeignKey(User,on_delete=True,null=True,default=1)
     license_on = models.ForeignKey(License,on_delete=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    #university = models.ForeignKey(University,on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     body = models.TextField()
     

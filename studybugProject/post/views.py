@@ -8,6 +8,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Student, Comment
 from django.contrib.auth.models import User
+#from .forms import BlogPost
+
+#from .forms import PostForm
 
 # Create your views here.
 class PostView(ListView):   #html 템플릿 : 블로그 리스트를 담은 html : (소문자모델)_list.html
@@ -15,10 +18,12 @@ class PostView(ListView):   #html 템플릿 : 블로그 리스트를 담은 html
     context_object_name = 'comm_list'
     model = Student
 
-class PostCreate(CreateView): #html : form (입력공간)을 갖고 있는 html : (소문자모델)_form.html
+class PostCreate(CreateView): #html : form (입력공간ß을 갖고 있는 html : (소문자모델)_form.html
     template_name = 'post/create.html'
     model = Student
+    #form_class = PostForm
     fields = ['license_on','body','rate']
+    
     success_url = reverse_lazy('list')
 
 class PostDetail(DetailView): #html : 상세 페이지를 담은 html : (소문자모델)_detail.html

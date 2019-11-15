@@ -1,28 +1,39 @@
 from django import forms
-from .models import University, Student, Comment
-from .widgets import CounterTextInput, starWidget
+from .models import Student, Comment, License
 
 # 생략
-class UniversityForm(forms.ModelForm):
-    class Meta:
-        model = University
-        field = ['name','department','grade']
-        widgets = {
-            'name':CounterTextInput,
-            'department':CounterTextInput,
-            'grade':CounterTextInput,
-        }
+# class PostForm(forms.ModelForm):
+#     class Meta:
+#         model = Student
+#         field = ['license_on','rate','body']
 
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = '__all__'
-        widgets = {
-            'grade': starWidget,
-        }
+#         licenses = (
+#             ('a',"산업기사자격증"),
+#             ('b',"물류기사자격증"),
+#         )
 
-class CommentForm(forms.ModelForm):
+#         license_on = models.CharField(
+#             max_length=1,
+#             choices = LEVEL,
+#             blank = True,
+#             default='a',
+#             help_text='자격증 종류',
+#         )
 
+#         widgets = {
+            
+#             'rate':CounterTextInput,
+#             'body':CounterTextInput,
+#         }
+
+# class CommentForm(forms.ModelForm):
+
+#     class Meta:
+#         model = Comment
+#         fields = ('author', 'text',)
+
+class BlogPost(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('author', 'text',)
+        model =  Student
+        fields = ['license_on','rate','body']
+        

@@ -23,11 +23,11 @@
             <a href="/accounts/logout">로그아웃</a><br>
             {% else %}
             <!--회원가입 폼-->
-            <form action="" method="POST" id="sign_up">
+            <form action="{%url 'login'%}" method="POST" id="sign_up">
                 {% csrf_token %}
-                <input id="user_email" name="user_email" type="text" class="inp" placeholder="이메일" required>
-                <input id="user_password" name="user_password" type="password" placeholder="비밀번호"class="inp" required>
-                <input id="user_password2" name="user_password2" type="password" placeholder="비밀번호 확인"class="inp" required>
+                <input id="user_email" name="username" type="text" class="inp" placeholder="이메일" required>
+                <input id="user_password" name="password1" type="password" placeholder="비밀번호"class="inp" required>
+                <input id="user_password2" name="password2" type="password" placeholder="비밀번호 확인"class="inp" required>
                 <div class="btn inp" >
                     <a href="{% provider_login_url 'google' %}">구글 로그인</a>
                 </div>
@@ -40,10 +40,10 @@
             </form>
             
             <!--로그인 폼-->
-            <form action="{% url 'login' %}" method="POST" id="sign_in">
+            <form action="{%url 'login'%}" method="POST" id="sign_in">
                     {% csrf_token %}
-                    <input id="login_email" name="login_email" type="text" class="inp" placeholder="이메일" required>
-                    <input id="login_password" name="login_password" type="password" class="inp"  placeholder="비밀번호" required>
+                    <input id="login_email" name="username" type="username" class="inp" placeholder="이메일" required>
+                    <input id="login_password" name="password1" type="password" class="inp"  placeholder="비밀번호" required>
                     <div class="btn inp" >
                         <a href="{% provider_login_url 'google' %}">구글 로그인</a>
                     </div>

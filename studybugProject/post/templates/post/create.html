@@ -16,7 +16,7 @@
      <form action="" method="POST">
         {% csrf_token %}
         <!-- 라이센스 선택 -->
-        {{form.license_on}}
+        {{form.license_on.get_licenses_display}}
         <input type="text" class="inp popup_open" pop_nm="lic_search" placeholder="자격증 검색" required readonly >
         <div>
             

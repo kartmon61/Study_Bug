@@ -3,7 +3,7 @@ from .import views
 
 urlpatterns = [
     #포스트 페이지
-    path('',views.Post,name='list'),
+    path('<int:category>',views.Post,name='list'),
     path('new/',views.PostNew,name='new'),
     path('show/<int:post_id>',views.PostShow,name='detail'),
     path('edit/<int:post_id>',views.PostEdit,name='change'),

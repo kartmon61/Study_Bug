@@ -146,17 +146,12 @@ footer img{
   margin:auto;
 }
 
-.float_btn{ 
-  border-radius: 100%;
-  font-size: 1.8em;
-  font-weight: bold;
-  background-color: crimson;
-  box-shadow: 3px 2px rgba(0, 0, 0, 0.199);
-  padding:10px 20px;
+.float_btn{       
+  width:10%;
   color:#ffffff;
   position: fixed;
   bottom:8%;
-  right:15px;
+  right:10%;
   z-index: 10000;
 }
 
@@ -369,7 +364,7 @@ footer img{
    
   /********************************/
   .title_img{
-    width:30%;
+    width:20%;
     margin-left: 30px;
   }
   #main{
@@ -523,7 +518,7 @@ footer img{
       margin-top: 60%;
     }
     .title_img{
-      width:50%;
+      width:40%;
     }
     header .logo{
       clear: both;  
@@ -564,5 +559,13 @@ footer img{
     }
     #main nav{
       margin-top:0px;
+    }
+    .float_btn{       
+      width:30%;
+      color:#ffffff;
+      position: fixed;
+      bottom:5%;
+      right:5px;
+      z-index: 10000;
     }
   }  

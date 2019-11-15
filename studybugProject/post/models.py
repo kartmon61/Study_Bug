@@ -14,7 +14,6 @@ class License(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=200,null=True)
 
-
 class Student(models.Model):
     #title = models.CharField(max_length=200,null=True)
     author = models.ForeignKey(User,on_delete=True,null=True,default=1)
@@ -24,10 +23,9 @@ class Student(models.Model):
     rate = models.CharField(max_length=200)
     body = models.TextField(max_length=200)
     category = models.CharField(max_length=200,null=True)
-    
+
     def __str__(self):
         return self.title
-
 
 class Comment(models.Model):
     author = models.CharField(max_length=200,null=True,default=1)

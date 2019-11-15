@@ -18,7 +18,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('user_interest', models.CharField(max_length=200, null=True)),
+<<<<<<< HEAD
                 ('user_img', models.ImageField(upload_to='')),
+=======
+>>>>>>> 2d2e93809c28df58b3c5cf8d09f6261827a992aa
                 ('user', models.ForeignKey(default=1, null=True, on_delete=True, to=settings.AUTH_USER_MODEL)),
             ],
         ),

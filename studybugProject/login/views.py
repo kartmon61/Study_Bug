@@ -27,13 +27,6 @@ def signup(request):
             return render(request,'signup2.html')
     return render(request,'login.html')
 
-#관심사 선택 함수
-def signup2(request):
-    if request.method == 'POST':
-        return render(request,'main.html')
-
-
-
 #로그아웃 함수
 def logout(request):
     if request.method == 'POST':

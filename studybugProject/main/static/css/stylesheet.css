@@ -146,24 +146,20 @@ footer img{
   margin:auto;
 }
 
-.float_btn{ 
-  border-radius: 100%;
-  font-size: 1.8em;
-  font-weight: bold;
-  background-color: crimson;
-  box-shadow: 3px 2px rgba(0, 0, 0, 0.199);
-  padding:10px 20px;
+.float_btn{       
+  width:10%;
   color:#ffffff;
   position: fixed;
   bottom:8%;
-  right:15px;
+  right:10%;
   z-index: 10000;
 }
 
 .reviewList{  
   display: block;
   width:65%;   
-  margin: 0px auto 20px auto; 
+  margin: auto; 
+  margin-bottom: 15px;
   padding:15px 20px;
   background: rgb(245, 245, 245);
   box-shadow: 0px 3px rgba(0, 0, 0, 0.247);
@@ -172,6 +168,9 @@ footer img{
   background-repeat: no-repeat;
   background-size: cover;
   */
+}
+.reviewList div{
+  margin-left: 15px;
 }
 .review{
   display: -webkit-box; 
@@ -186,7 +185,7 @@ footer img{
   -webkit-box-orient:vertical; 
   -webkit-line-clamp:3;
   width:90%;
-  margin:auto;
+  margin:auto; 
   clear: both;
 }
 .icon{
@@ -365,7 +364,7 @@ footer img{
    
   /********************************/
   .title_img{
-    width:30%;
+    width:20%;
     margin-left: 30px;
   }
   #main{
@@ -386,16 +385,20 @@ footer img{
     text-align: center;
   }
  
-   
-  #main input {
-    display: inline-block;
-  }
   #main input[type="text"]{
-    width:61.5%;
-    border-bottom: 1px solid #FA5A5A;
+    width:65%;
+    margin:auto;
+    border-bottom: 3px solid #FA5A5A;
+    text-indent:5%;
   }
-  #main input[type="submit"]{
-    width:25%; 
+  #main nav{
+    margin-top:30px;
+  }
+  #main nav .icon{
+    display: block;  
+    position: relative;  
+    margin-top:-40px;
+    right:17%;
   }
   #main .status{
     margin-top:-23px;
@@ -414,6 +417,14 @@ footer img{
   }
   #main .reviewList h3{
     margin-left:15px;
+  }
+  
+  .user-img{
+    width:15%;
+    display: block;
+    position: absolute;
+    left:17%; 
+    margin-top:-10px;
   }
   article{
     width:70%;
@@ -501,19 +512,13 @@ footer img{
       bottom: -75px; 
       left:-40px;
   
-    }
-    #main input[type="text"]{
-      width:56%;
-    }
-    #main input[type="submit"]{
-      width:25%; 
-    }
+    } 
     #loading img{ 
       width:80%;   
       margin-top: 60%;
     }
     .title_img{
-      width:50%;
+      width:40%;
     }
     header .logo{
       clear: both;  
@@ -538,5 +543,29 @@ footer img{
     article{
       width:100%;
       margin:auto;
+    }
+    .user-img{
+      width:30%;
+      display: block;
+      position: absolute;
+      left:0; 
+      margin-top:-10px;
+    }
+    #main nav .icon{
+      display: block;  
+      position: relative; 
+      margin-top:-10%;
+      right:12%;
+    }
+    #main nav{
+      margin-top:0px;
+    }
+    .float_btn{       
+      width:30%;
+      color:#ffffff;
+      position: fixed;
+      bottom:5%;
+      right:5px;
+      z-index: 10000;
     }
   }  

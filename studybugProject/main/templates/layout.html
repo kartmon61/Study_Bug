@@ -32,7 +32,7 @@
                     $(".float_btn").hide();
             }else{
                 $(".float_btn").click(function(){
-                 location.href="newpost";
+                 location.href="../post";
                 });
             }
             
@@ -46,13 +46,13 @@
 
     <div class="bg"></div> 
     <header>
-        <img class="center logo" src="/static/img/logo.png">
+        <a href="/main"><img class="center logo" src="/static/img/logo.png"></a>
         <a href="#" class="left" onclick="_back()" ><img src="/static/img/back.png"></a>
         <a href="#" class="right"><img src="/static/img/menu.png"></a>
     </header>
     {% block layoutblock %}
     {% endblock %}  
-    <div class="float_btn">+</div> 
+    <img class="float_btn" src="/static/img/write.png">
     <footer>
         <img class="center bottom" src="/static/img/create.png">
     </footer> 

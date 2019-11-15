@@ -26,6 +26,7 @@ def Post(request):
 
     return render(request,'list.html',{'page_posts':page_posts})
 
+
 def PostNew(request):
         if request.method == 'POST': 
                 Student.license_on = request.POST['license']
@@ -65,12 +66,10 @@ def PostEdit(request, post_id):
         return render(request, 'edit.html', {'posts' : one_post})
 
 
-
 def PostDelete(request, post_id):
     one_post = Student.objects.get(pk = post_id)
     one_post.delete()
     return redirect('/post')
-
 
 
 def commentcreate(request,post_id):
@@ -87,8 +86,6 @@ def commentdelete(request,post_id,comment_id):
 
 def redirectForm(request,msg):
         return render(request, 'redirect.html', {'msg': msg})
-
-
 
 
 # def PostUpdate(request,post_id):

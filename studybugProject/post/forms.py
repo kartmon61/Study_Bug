@@ -32,8 +32,16 @@ from .models import Student, Comment, License
 #         model = Comment
 #         fields = ('author', 'text',)
 
-class BlogPost(forms.ModelForm):
+class PostCreate(forms.ModelForm):
     class Meta:
         model =  Student
         fields = ['license_on','rate','body']
+        
+        license_on = forms.ChoiceField(widget = forms.Select(), choices=[('1','산업기사자격증'),('2','전기기사자격증'),('3','물류기사자격증')])
+
+        # widgets = {
+        #     'licnese_on':forms.CharField(),
+        #     'rate':forms.CharField(),
+        #     'body':forms.CharField(),
+        # }
         

@@ -16,7 +16,7 @@
      <form action="" method="POST">
         {% csrf_token %}
         <!-- 라이센스 선택 -->
-        {{form.license_on.get_licenses_display}}
+        {{ form.as_p }}
         <input type="text" class="inp popup_open" pop_nm="lic_search" placeholder="자격증 검색" required readonly >
         <div>
             
@@ -28,7 +28,7 @@
                 <li><img class="r_pnt" src="" alt="별5"></li>
             </ul>
             <!-- 별점 입력 -->
-            {{form.rate}}
+            <!-- {{form.rate}} -->
             <script>
                 //임시로 쓴 거 
                 for(i=0;i<7;i++){
@@ -39,7 +39,7 @@
         <input type="hidden" id="review_point" name="review_point">
         
         <div class="inp" placeholder="내용을 입력하세요" id="review_cont" name="review_cont" required>
-                {{form.body}}
+                <!-- {{form.body}} -->
         </div>
         <input type="submit" class="inp btn" value="작성">
     </form>

@@ -9,12 +9,15 @@
         //     console.log($("div[no='"+i+"']"));
         //     $("div[no='"+i+1+"']").html(comm_cnt_v[i]);
         // }
+        var ct_text = ["경영","물류","화학","건축","전기","컴퓨터"]
+        console.log($(".menu_title").text());
+        $(".menu_title").text(ct_text[$(".menu_title").text()]);
     });
 
 </script>
 
 <section id="list">
-    <h1 class="menu_title">물류</h1>
+    <h1 class="menu_title">{{menu}}</h1>
     <a href="#" class="sel_btn">
         <div>유통관리사</div>
         <img class="right" src="/static/img/selectbutton.png">
@@ -52,9 +55,14 @@
                         </div>           
                       
                         </div>
-                        </li>
+            </li>
             {% endfor %}
-            
+            {%else%}
+            <li class="reviewList"> 
+                <div>
+                    <div class='review'>글이 없습니다</div>
+                </div>
+            </li>
             {% endif %}
     
         </ul>

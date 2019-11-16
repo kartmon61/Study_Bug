@@ -31,29 +31,21 @@
             <img class="icon right" src="/static/img/search.png">
         </form> 
         
-        <!-- 메뉴 -->
-            <div> 
-                    <form action="{%url 'list'%}" method="GET" id='test'>
-                        <input type="hidden" name="category">
-                    </form> 
-                    {% for cat in category %}
-                   
-                    <div class="cate" type="submit" no="{{cat.code_no}}"> {{cat.name}}</div>
-                    
-                    {% endfor %} 
-                    <!-- <div class="cate" type="submit" no="1" value="물류">
-                    <input class="cate" type="submit" no="2" value="화학"><br>
-                    <input class="cate" type="submit" no="3" value="건축">
-                    <input class="cate" type="submit" no="4" value="전기">
-                    <input class="cate" type="submit" no="5" value="컴퓨터"> -->
-                    <!-- <li class="cate" type="submit" name="0"><a href="#" >경영</a></li>
-                    <li class="cate" name="1"><a href="#" >물류</a></li>
-                    <li class="cate" name="2"><a href="#" >화학</a></li> <br/>
-                    <li class="cate" name="3"><a href="#" >건축</a></li>
-                    <li class="cate" name="4"><a href="#">전기</a></li>
-                    <li class="cate" name="5"><a href="#" >컴퓨터</a></li>  -->
-   
-            </div>
+        <!-- 메뉴 --> 
+            <form action="{%url 'list'%}" method="GET" id='test'>
+                <input type="hidden" name="category">
+            </form> 
+            <ul>
+                {% for cat in category %}
+                {% if forloop.counter == 1%}
+                <li class="cate active" no="{{cat.code_no}}"> {{cat.name}}</li>     
+                {%else%}
+                <li class="cate" no="{{cat.code_no}}"> {{cat.name}}</li>     
+                {% if forloop.counter == 3%}  <br/>
+                {% endif %}     
+                {%endif%}
+            {% endfor %} 
+            </ul>  
         
     </nav>
     <article>
@@ -71,7 +63,7 @@
                         <h3>{{r.author}}</h3>
                         <p class="right red status" no="{{r.id}}"></p>
                         <h1>{{r.license_on.name}}</h1>
-                        <p class="small"><img class="icon left" src="/static/img/calender.png">{{r.created_at}}</p>
+                        <p class="small"><img class="icon left" src="/static/img/calender.png">{{r.created_at| date:"D d M Y"}}</p>
                         <div class='review'>{{r.body}}</div>
                     </a>
                 </div>
@@ -93,6 +85,6 @@
         </ul>
     </article>
 
-    <a href="../post">리뷰 작성 Test</a>
+    <!--<a href="../post">리뷰 작성 Test</a>-->
 </section>
 {% endblock %}

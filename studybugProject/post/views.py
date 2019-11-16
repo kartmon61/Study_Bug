@@ -11,23 +11,24 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-def Post(request):
-
+def Post(request): 
     category_id = request.GET.get('category')
     # print("카테고리"+category_id)
+    
+
     category = get_list_or_404(Category,code_no=category_id)
     comm_cnt = []
     try :
-        posts = get_list_or_404(Student,category=category_id)
+        posts = get_list_or_404(Student,category=category_id) 
 
     #페이지화
         paginator = Paginator(posts,5) 
         page = request.GET.get('page')
         page_posts = paginator.get_page(page)
-        return render(request,'list.html',{'page_posts':page_posts})
+        return render(request,'list.html',{'page_posts':page_posts,'menu':category_id})
     except :
         posts = None
-        return render(request,'list.html')
+        return render(request,'list.html',{'menu':category_id})
 
 def Mpost(request):
     category_id = request.GET.get('category')
@@ -53,13 +54,20 @@ def Mpost(request):
 
 def PostNew(request):
         if request.method == 'POST': 
-                Student.license_on = request.POST['license']
-                Student.category = request.POST['category']
-                Student.body = request.POST['body']
-                Student.rate = request.POST['rate']
-                Student.author = request.user
-                Student.save()
-                return redirect('/post')
+                s = Student()
+                print(request.POST['license_on'])
+                print(request.POST['category'])
+                print(request.POST['body'])
+                print(request.POST['rate'])  
+                #l = get_object_or_404(License,name="유통관리사")
+                s.license_on = request.POST['license_on']
+                s.category = request.POST['category']
+                s.body = request.POST['body']
+                s.rate = request.POST['rate']
+                s.author = request.user
+                
+                s.save()
+                return redirect('/post?category='+request.POST['category'])
         else:
             category = Category.objects.all()
             license_on = License.objects.all()

@@ -12,14 +12,13 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def Post(request):
-
     category_id = request.GET.get('category')
     # print("카테고리"+category_id)
     category = get_list_or_404(Category,code_no=category_id)
     comm_cnt = []
     try :
         posts = get_list_or_404(Student,category=category_id)
-
+    
     #페이지화
         paginator = Paginator(posts,5) 
         page = request.GET.get('page')
@@ -53,10 +52,10 @@ def Mpost(request):
 
 def PostNew(request):
         if request.method == 'POST': 
-                Student.license_on = request.POST['license']
-                Student.category = request.POST['category']
+                Student.license_on = "0"
+                Student.category = "0"
                 Student.body = request.POST['body']
-                Student.rate = request.POST['rate']
+                Student.rate = "0"
                 Student.author = request.user
                 Student.save()
                 return redirect('/post')

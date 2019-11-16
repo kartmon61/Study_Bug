@@ -16,7 +16,7 @@ class Category(models.Model):
     code_no = models.CharField(max_length=200,null=True)
 
 class Student(models.Model):
-    title = models.CharField(max_length=200,null=True,default="")
+    #title = models.CharField(max_length=200,null=True,default="")
     author = models.ForeignKey(User,on_delete=True,null=True,default=1)
     license_on = models.ForeignKey(License,on_delete=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True)

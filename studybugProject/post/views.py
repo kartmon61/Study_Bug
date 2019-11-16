@@ -11,22 +11,33 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
+<<<<<<< HEAD
 def Post(request):
+=======
+def Post(request): 
+>>>>>>> 5e19e204dc62bf4aaefb88bc11fbbe5ff6d67a11
     category_id = request.GET.get('category')
     # print("카테고리"+category_id)
+    
+
     category = get_list_or_404(Category,code_no=category_id)
     comm_cnt = []
     try :
+<<<<<<< HEAD
         posts = get_list_or_404(Student,category=category_id)
     
+=======
+        posts = get_list_or_404(Student,category=category_id) 
+
+>>>>>>> 5e19e204dc62bf4aaefb88bc11fbbe5ff6d67a11
     #페이지화
         paginator = Paginator(posts,5) 
         page = request.GET.get('page')
         page_posts = paginator.get_page(page)
-        return render(request,'list.html',{'page_posts':page_posts})
+        return render(request,'list.html',{'page_posts':page_posts,'menu':category_id})
     except :
         posts = None
-        return render(request,'list.html')
+        return render(request,'list.html',{'menu':category_id})
 
 def Mpost(request):
     category_id = request.GET.get('category')
@@ -52,13 +63,16 @@ def Mpost(request):
 
 def PostNew(request):
         if request.method == 'POST': 
-                Student.license_on = "0"
-                Student.category = "0"
-                Student.body = request.POST['body']
-                Student.rate = "0"
-                Student.author = request.user
-                Student.save()
-                return redirect('/post')
+                s = Student()
+
+                s.license_on = request.POST['license_on']
+                s.category = request.POST['category']
+                s.body = request.POST['body']
+                s.rate = request.POST['rate']
+                s.author = request.user
+                
+                s.save()
+                return redirect('/post?category='+request.POST['category'])
         else:
             category = Category.objects.all()
             license_on = License.objects.all()

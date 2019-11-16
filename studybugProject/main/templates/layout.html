@@ -45,11 +45,11 @@
             } 
             
             $(".sel_btn").click(function(){
-                $(".sel_wrap").toggle();
+                $(".sel_wrap[no='"+$(this).attr("no")+"']").toggle();
             });
             $(".sel_li").click(function(){
-                $(".sel_btn>div").text($(this).text());
-                $(".sel_wrap").toggle();
+                $(".sel_btn[no='"+$(this).attr("no")+"']>div").text($(this).text());
+                $(".sel_wrap[no='"+$(this).attr("no")+"']").toggle();
             });
             $("a[href='#myinfo']").click(function(){
                 var status = $("#slide_menu").css("display");
@@ -91,8 +91,8 @@
                    <img class="user-img" src="/static/img/pro.png">
                 </div>
                 <div class="inline">
-                   <b>이름 </b>
-                   <p>이메일</p>
+                   <b>이정인 </b>
+                   <p>alslahdk@gmailc.com</p>
                 </div>
             </div>
             <ul class="center"> 
@@ -100,7 +100,7 @@
                     <img class="logo" src="/static/img/9/check.png" alt="">
                     Change your interest
                     <ul > 
-                        <li class="tag" onclick="chk_i(this,'tag_active')">경영</li>
+                        <li class="tag tag_active" onclick="chk_i(this,'tag_active')">경영</li>
                         <li class="tag" onclick="chk_i(this,'tag_active')">물류</li>
                         <li class="tag" onclick="chk_i(this,'tag_active')">화학</li> 
                         <li class="tag" onclick="chk_i(this,'tag_active')">건축</li>

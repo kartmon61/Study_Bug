@@ -54,13 +54,12 @@
         <li class="cate"><a href="#" onclick="chk_i(this)">건축</a></li>
         <li class="cate"><a href="#" onclick="chk_i(this)">전기</a></li>
         <li class="cate"><a href="#" onclick="chk_i(this)">컴퓨터</a></li> 
-    </ul>    
-    <h2 onclick="f_submit()">넘어가기</h2>
+    </ul>     
     <form action="/main/" method="POST">
         {% csrf_token %}
         <input type="hidden" id="user_id" name="username"> <!-- 앞에 회원 가입 페이지에서 아이디 넘겨 받아야됨-->
         <input type="hidden" id="user_interest" name="user_interest">
-        <input type="submit" value="확인">
+        <input type="submit" onclick="f_submit()" value="넘어가기">
     </form>
     <!--<a href="#" class= "inp active" onclick="f_submit()">다음</a>-->
 

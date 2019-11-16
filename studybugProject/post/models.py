@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 #     grade = models.IntegerField()
 
 class License(models.Model):
-    name = models.CharField(max_length=200,null=True)
+    name = models.CharField(max_length=200,null=True,default="유통관리사")
 
 class Category(models.Model):
     name = models.CharField(max_length=200,null=True)
@@ -18,12 +18,12 @@ class Category(models.Model):
 class Student(models.Model):
     #title = models.CharField(max_length=200,null=True,default="")
     author = models.ForeignKey(User,on_delete=True,null=True,default=1)
-    license_on = models.ForeignKey(License,on_delete=True,null=True)
+    license_on = models.CharField(max_length=200,null=True,default="유통관리사")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     rate = models.CharField(max_length=200)
     body = models.TextField(max_length=200)
-    category = models.CharField(max_length=200,null=True)
+    category = models.CharField(max_length=200,null=True,default="0")
     
 
 class Comment(models.Model):

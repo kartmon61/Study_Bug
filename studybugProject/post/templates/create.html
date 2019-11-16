@@ -12,64 +12,66 @@
         pu_close();
     }
      
+    $(function(){
+        $("#r_submit").click(function(){
+            $("#rate").val($(".tag_active").attr("no"));
+            $("#category").val($(".sel_btn[no='1']").attr("no"));
+            $("#license_on").val($(".sel_btn[no='2']").text());
+            $("#r_C").submit();
+        });
+    });
 </script>
  <section id="review_new">
+     <br/>
+     <br/>
      <h1 class="red">REVIEW YOUR EXAM</h1>
      <br/>
-     <a href="#" class="sel_btn">
+     <a href="#" class="sel_btn" no="2">
          <div>유통관리사</div>
          <img class="right" src="/static/img/selectbutton.png">
      </a>
-     <ul class="sel_wrap">
-        {% for category in category %}
-        <li class="sel_li">{{category.name}}</li>
+     <ul class="sel_wrap" no="2">
+        {% for license in license %}
+        <li class="sel_li" no="2">{{license.name}}</li>
         {% endfor %} 
      </ul>  
-    
-     <form action="" method="POST">
+     
+     <a href="#" class="sel_btn" no="1">
+        <div>경영</div>
+        <img class="right" src="/static/img/selectbutton.png">
+     </a>
+     <ul class="sel_wrap" no="1">
+        {% for category in category %}
+        <li class="sel_li" no="1">{{category.name}}</li>
+        {% endfor %} 
+     </ul>  
+     <form action="{% url 'new' %}" method="POST" id= "r_C">
         {% csrf_token %} 
         
         <!-- <input type="text" class="inp popup_open" pop_nm="lic_search" placeholder="자격증 검색" required readonly >-->
         <div>
             <div>
-                <img src="/static/img/8/tagicon.png" class="icon">
+                <img src="/static/img/8/tagicon.png" id="df">
                 <h1 class="red">DIFFICULTY</h1>
              </div>
             <ul > 
-                <li class="tag" onclick="cchk_i(this,'tag_active')">쉬워요</li>
-                <li class="tag" onclick="cchk_i(this,'tag_active')">보통이에요</li>
-                <li class="tag" onclick="cchk_i(this,'tag_active')"> 어려웠어요</li> 
+                <li class="tag" onclick="cchk_i(this,'tag_active')" no="0">쉬워요</li>
+                <li class="tag" onclick="cchk_i(this,'tag_active')" no="1">보통이에요</li>
+                <li class="tag" onclick="cchk_i(this,'tag_active')" no="2"> 어려웠어요</li> 
             </ul>
             
             
         </div>
-        <input type="hidden" id="review_point" name="review_point">
-        
+        <input type="hidden" id="category" name="category"> 
+        <input type="hidden" id="rate" name="rate"> 
+        <input type="hidden" id="license_on" name="license_on">
+
         <textarea class="inp" placeholder="내용을 입력하세요" id="review_cont" name="body" required>
                 
         </textarea>
         <input type="submit" id="r_submit" class="inp" value="">
     </form>
 
-    <div class="pop_up" pop_nm="lic_search">
-        <div class="pop_up_h">
-            <a href="#" class="close">x</a> 
-        </div>
-        <div class="pop_up_con">
-            <h2>자격증 종류 검색</h2> 
-            <form action="" method="POST"> 
-                {% csrf_token %} 
-                <input type="text" placeholder="keyword" class="inp inline" name="keyword" required>
-                <input type="submit" value="search" class="inp inline">
-            </form>
-            <div>
-                <ul>
-                    {% for license in license %}
-                    {{license.name}}
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+ 
  </section>
 {% endblock %}

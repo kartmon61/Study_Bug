@@ -92,8 +92,9 @@ footer img{
 .cate{
   display: inline-block;
   color:#2F2F2F;
-  font-size: 1.6em;
+  font-size: 1.5em;
   padding:5px;
+  width:27%;
   margin:20px 0px;
 }
  
@@ -119,7 +120,7 @@ footer img{
      background-repeat: no-repeat;
      background-size:contain;
      background-position-x: top;  
-     padding:15px;
+     padding:12px;
      text-align: center;
      font-weight: bold;
 }
@@ -421,7 +422,7 @@ footer img{
     margin-top: -30%;
 
   }
-  #sign_up2 h2{
+  #sign_up2 input[type='submit']{
     font-size: 1.4em; 
     font-weight: normal;
     display: block;    
@@ -429,6 +430,8 @@ footer img{
     margin:auto;
     position: relative;
     bottom: 30%; 
+    border:0px;
+    background-color: transparent;
     border-bottom:1px solid #9C9C9C;
   }
  
@@ -443,9 +446,9 @@ footer img{
     margin-top:60px;
     padding-top:30px; 
   }
-
+  
   #main ul:nth-child(1){
-    width:100%;
+    width:80%;
     text-align: center;
   }
   
@@ -471,6 +474,12 @@ footer img{
     margin-top:-40px;
     right:17%;
   }
+ 
+ #df{
+   width:20%;
+   position: relative;
+   top:17px;
+ }
   .status{
     margin-top:-23px;
     font-size: 0.8em;
@@ -501,17 +510,14 @@ footer img{
     width:70%;
     margin:auto;
   }
-  nav div{
-    width:90%;
-    margin:auto;
-  }
+ 
+  nav {text-align: center;}
   nav ul{   
     display: block; 
     width:100%;
-    margin:auto;
-    overflow-x:auto;
-    white-space: nowrap;   
+    margin:auto; 
   }
+ 
 /*************************************************************/
 #review_new{
   margin-top: 50px; 
@@ -566,7 +572,7 @@ footer img{
 div .icon{
   width:20%; 
   position: relative;
-  top:15px;
+  top:-10px;
 }
 .list_{ 
   width:90%; 
